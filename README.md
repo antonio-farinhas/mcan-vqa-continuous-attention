@@ -1,5 +1,3 @@
-> 📋A template README.md for code accompanying a Machine Learning paper
-
 # Sparse and Continuous Attention Mechanisms - experiments on VQA with continuous attention
 
 > 📋Optional: include a graphic explaining your approach/main result, bibtex entry, link to demos, blog posts and tutorials
