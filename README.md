@@ -14,11 +14,13 @@ pip install -r requirements.txt
 
 ## Training
 
-To train the model(s) in the paper, run this command:
+To train the models in the paper, run this command:
 
 ```train
-python train.py --input-data <path_to_data> --alpha 10 --beta 20
+
+python3 run.py --RUN='train' --MAX_EPOCH=13 --SEED=87415123 --M='mca' --gen_func='softmax' --SPLIT='train' --attention=str
 ```
+with ```str={'discrete', 'cont-softmax', 'cont-sparsemax'}``` to train the model with discrete, 2D continuous softmax or 2D continuous sparsemax attention. 
 
 > 📋Describe how to train the models, with example commands on how to train the models in your paper, including the full training procedure and appropriate hyperparameters.
 
