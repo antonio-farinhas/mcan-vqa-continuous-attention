@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-torch.autograd.set_detect_anomaly(True)
+# torch.autograd.set_detect_anomaly(True)
 
 
 class ContinuousSparsemaxFunction(torch.autograd.Function):
