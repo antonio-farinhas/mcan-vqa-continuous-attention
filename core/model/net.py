@@ -26,7 +26,7 @@ class AttFlat(nn.Module):
         super(AttFlat, self).__init__()
         self.__C = __C
 
-        self.attention=__C.attention #added this now
+        self.attention=__C.attention
         self.gen_func=gen_func
 
         if str(gen_func)=='tvmax':
@@ -115,7 +115,7 @@ class AttFlat(nn.Module):
         sigmas=[]
         for sigma in range(1,nb_basis+1):
             sigmas.append([[0.001,0.],[0.,0.001]]) # it is possible to change this matrix
-        sigmas=torch.tensor(sigmas).to(device) # in continuous softmax we have #sigmas=torch.DoubleTensor(sigmas).to(device), need to change?
+        sigmas=torch.tensor(sigmas).to(device) # in continuous softmax we have sigmas=torch.DoubleTensor(sigmas).to(device)
 
         assert mus.size(0) == nb_basis
         psi.append(GaussianBasisFunctions(mu=mus, sigma=sigmas))
@@ -167,7 +167,7 @@ class AttFlat(nn.Module):
         # get `mu` and `sigma` as the canonical parameters `theta`
         theta1 = ((1/2. * (Sigma.inverse() + torch.transpose(Sigma.inverse(),-1,-2))) @ Mu).flatten(1)
         theta2 = (-1. / 2. * (1/2. * (Sigma.inverse() + torch.transpose(Sigma.inverse(),-1,-2)))).flatten(1)
-        theta = torch.zeros(x.size(0), 6, device=x.device ) #torch.Size([batch, 6]) #check x.device #include requires_grad=True?
+        theta = torch.zeros(x.size(0), 6, device=x.device ) #torch.Size([batch, 6])
         theta[:,0:2]=theta1
         theta[:,2:6]=theta2
 
